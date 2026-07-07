@@ -1,13 +1,127 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ============================================================
+   Global Styles — Design Tokens, Reset, Shared Components
+   ============================================================ */
+
+/* --- Design Tokens --- */
+:root {
+  --globalnav-height: 44px;
+  --color-bg: #000000;
+  --color-bg-alt: #161617;
+  --color-text: #f5f5f7;
+  --color-text-dim: #86868b;
+  --color-text-dimmer: #6e6e73;
+  --color-blue: #2997ff;
+  --color-blue-hover: #4299ff;
+  --color-green: #30d158;
+  --color-purple: #bf5af2;
+  --font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --max-content: 980px;
+  --max-wide: 1200px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* --- Reset --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-family); background: var(--color-bg); color: var(--color-text); overflow-x: hidden; }
+a { color: var(--color-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; }
+button { font-family: inherit; }
+
+/* --- Layout --- */
+.container { max-width: var(--max-content); margin: 0 auto; padding: 0 22px; }
+
+/* --- Shared Section Typography (Apple product-stories pattern) --- */
+.section-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.022em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  line-height: 1.29;
+}
+
+.section-headline {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.section-description {
+  font-size: clamp(15px, 2vw, 17px);
+  font-weight: 400;
+  letter-spacing: 0.011em;
+  line-height: 1.47;
+  color: var(--color-text-dim);
+  max-width: 680px;
+  margin: 0 auto 16px;
+}
+
+.highlight { color: var(--color-text); }
+.section-cta { margin-top: 12px; }
+
+/* --- Shared Section Layout --- */
+.section-centered {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 22px;
+  text-align: center;
+}
+
+/* --- Apple Link Arrow --- */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-blue);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.link-arrow:hover { text-decoration: none; color: var(--color-blue-hover); }
+.link-arrow::after {
+  content: '›';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.link-arrow:hover::after { transform: translateX(2px); }
+
+/* --- Apple Icon After (circle arrow) --- */
+.icon-after {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.icon-after.more::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  width: 4px;
+  height: 4px;
+  border-top: 1.2px solid currentColor;
+  border-right: 1.2px solid currentColor;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

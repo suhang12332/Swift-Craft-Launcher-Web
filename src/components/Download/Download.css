@@ -1,0 +1,48 @@
+.download-section {
+  padding: 100px 0;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.download-ctas {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 12px;
+}
+
+.download-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  background: var(--color-blue);
+  color: #fff;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.download-cta:hover {
+  background: var(--color-blue-hover);
+  text-decoration: none;
+  color: #fff;
+}
+
+.download-version {
+  font-size: 14px;
+  color: var(--color-text-dimmer);
+  margin-bottom: 20px;
+}
+
+.download-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .download-section { padding: 60px 0; }
+  .download-links { flex-direction: column; align-items: center; gap: 16px; }
+}
