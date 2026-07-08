@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useI18n } from "../../i18n";
+import { useTheme } from "../ThemeContext";
 import { proxyUrl } from "../../utils/region";
 import { RELEASES_URL } from "../../constants/urls";
 
@@ -14,6 +15,7 @@ function findAsset(assets, arch) {
 
 export default function Hero() {
   const { t, locale } = useI18n();
+  const { theme } = useTheme();
   const [latest, setLatest] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -86,7 +88,7 @@ export default function Hero() {
       </div>
 
       <div className="marquee-hero-image">
-        <img src="/slice.png" alt="Swift Craft Launcher" />
+        <img src={`/${locale}/${theme}.png`} alt="Swift Craft Launcher" />
       </div>
     </section>
   );
