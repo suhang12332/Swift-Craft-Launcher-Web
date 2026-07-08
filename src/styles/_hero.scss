@@ -1,0 +1,182 @@
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.marquee {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--globalnav-height) + 40px) 22px 60px;
+  overflow: hidden;
+  background: var(--color-hero-bg);
+}
+
+.marquee-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    rgba(41, 151, 255, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.marquee-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.marquee-eyebrow {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  line-height: 1.17;
+}
+
+.marquee-tagline {
+  font-size: clamp(15px, 2vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.011em;
+  line-height: 1.381;
+  color: var(--color-hero-tagline);
+  margin-bottom: 26px;
+}
+
+.marquee-requirement {
+  font-size: 14px;
+  color: var(--color-hero-requirement);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* --- Download Select --- */
+.marquee-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.marquee-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 26px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.marquee-cta-btn:hover {
+  background: var(--btn-bg-hover);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* --- Native Select Styling --- */
+.marquee-download-select {
+  position: relative;
+  display: inline-block;
+}
+
+.marquee-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: auto;
+  min-width: 0;
+  padding: 10px 40px 10px 26px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.marquee-download-select::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--btn-color);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .marquee-download-select::after {
+  border-top-color: var(--btn-color);
+}
+
+.marquee-select option {
+  background: var(--color-hero-bg, #1d1d1f);
+  color: var(--color-text);
+}
+
+.marquee-select::-ms-expand {
+  display: none;
+}
+
+/* --- Brew --- */
+.marquee-brew {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+}
+
+.marquee-brew code {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-family: "SF Mono", "Menlo", "Monaco", monospace;
+  font-size: 12px;
+  color: var(--color-hero-tagline);
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+[data-theme="light"] .marquee-brew code {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.marquee-version {
+  font-size: 14px;
+  color: var(--color-text-dim);
+  margin-top: 12px;
+}
+
+.marquee-hero-image {
+  position: relative;
+  z-index: 1;
+  margin-top: 22px;
+  max-width: 100%;
+}
+
+.marquee-hero-image img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .marquee {
+    min-height: 480px;
+    padding-top: calc(var(--globalnav-height) + 20px);
+  }
+  .marquee-eyebrow { font-size: 30px; }
+}
