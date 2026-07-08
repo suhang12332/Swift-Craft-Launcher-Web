@@ -83,12 +83,6 @@ export default function Hero() {
             suhang12332/swiftcraftlauncher/swift-craft-launcher
           </code>
         </div>
-
-        {latest && (
-          <p className="marquee-version">
-            {latest.version} · {latest.date}
-          </p>
-        )}
       </div>
 
       <div className="marquee-hero-image">
