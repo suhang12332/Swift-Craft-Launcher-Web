@@ -94,18 +94,17 @@
   transition: transform 0.3s, opacity 0.3s;
   position: absolute;
   left: 1px;
+  top: 50%;
 }
 
-.globalnav-menubutton-icon span:first-child { top: 4px; }
-.globalnav-menubutton-icon span:last-child { bottom: 4px; }
+.globalnav-menubutton-icon span:first-child { transform: translateY(-3px); }
+.globalnav-menubutton-icon span:last-child { transform: translateY(3px); }
 
 .globalnav-menubutton-icon.open span:first-child {
-  top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 .globalnav-menubutton-icon.open span:last-child {
-  bottom: 50%;
-  transform: translateY(50%) rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .globalnav-overlay { display: none; }

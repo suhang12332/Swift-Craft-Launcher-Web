@@ -23,6 +23,8 @@ export default {
     userGuide: "用户指南",
     changelog: "版本历史",
     community: "社区",
+    qqGroup: "QQ群",
+    bilibili: "Bilibili",
     feedback: "反馈",
     reportIssue: "报告问题",
     legal: "协议",

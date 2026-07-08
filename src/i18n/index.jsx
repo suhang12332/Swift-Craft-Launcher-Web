@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import zhCN from "./locales/zh-CN";
 import zhTW from "./locales/zh-TW";
 import en from "./locales/en";
@@ -35,4 +35,15 @@ export function I18nProvider({ children }) {
 
 export function useI18n() {
   return useContext(I18nContext);
+}
+
+const DOCS_LOCALE_MAP = {
+  "zh-CN": "zh-Hans.lproj",
+  "zh-TW": "zh-Hant.lproj",
+  en: "en.lproj",
+};
+
+export function getDocsUrl(locale) {
+  const path = DOCS_LOCALE_MAP[locale] || "en.lproj";
+  return `https://doc.scl.isiah.top/${path}/`;
 }

@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useI18n } from '../../i18n';
+import { useState, useEffect, useCallback } from 'react';
+import { useI18n, getDocsUrl } from '../../i18n';
+import { RELEASES_URL, GITHUB_REPO, WIKI_URL, ISSUES_URL } from '../../constants/urls';
 
 export default function Navbar() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const MENU_ITEMS = [
-    { label: t.navbar.docs, href: '#docs' },
-    { label: t.navbar.changelog, href: '#changelog' },
-    { label: 'GitHub', href: 'https://github.com/suhang12332/SwiftCraftLauncher', external: true },
-    { label: 'Wiki', href: 'https://github.com/suhang12332/SwiftCraftLauncher/wiki', external: true },
-    { label: t.navbar.reportIssue, href: 'https://github.com/suhang12332/SwiftCraftLauncher/issues', external: true },
+    { label: t.navbar.docs, href: getDocsUrl(locale), external: true },
+    { label: t.navbar.changelog, href: RELEASES_URL, external: true },
+    { label: 'GitHub', href: GITHUB_REPO, external: true },
+    { label: 'Wiki', href: WIKI_URL, external: true },
+    { label: t.navbar.reportIssue, href: ISSUES_URL, external: true },
     { label: 'ZreadAI', href: 'https://zreadai.com', external: true },
   ];
 

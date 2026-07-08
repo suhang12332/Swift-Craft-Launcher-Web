@@ -23,6 +23,8 @@ export default {
     userGuide: "User Guide",
     changelog: "Changelog",
     community: "Community",
+    qqGroup: "QQ Group",
+    bilibili: "Bilibili",
     feedback: "Feedback",
     reportIssue: "Report Issue",
     legal: "Legal",

@@ -8,6 +8,13 @@
   border-top: 1px solid var(--border-color);
 }
 
+.section-centered {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 22px;
+  text-align: center;
+}
+
 .contributors-group { margin-bottom: 40px; }
 .contributors-group:last-child { margin-bottom: 0; }
 

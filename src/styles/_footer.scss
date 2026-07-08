@@ -41,7 +41,9 @@
 .ac-globalfooter-directory-list a:hover { color: var(--color-text); text-decoration: underline; }
 
 .ac-globalfooter-bottom {
-  padding-top: 12px;
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 4px;

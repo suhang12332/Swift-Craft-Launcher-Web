@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "../../i18n";
-
-const CHINA_PROXY = "https://gh-proxy.com";
-
-function isChinaTimezone() {
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return tz === "Asia/Shanghai" || tz === "Asia/Chongqing" || tz === "Asia/Harbin" || tz === "Asia/Urumqi";
-  } catch {
-    return false;
-  }
-}
-
-function proxyUrl(url) {
-  if (!url) return url;
-  return isChinaTimezone() ? `${CHINA_PROXY}/${url}` : url;
-}
+import { proxyUrl } from "../../utils/region";
+import { RELEASES_URL } from "../../constants/urls";
 
 function findAsset(assets, arch) {
   return assets.find((a) => {
@@ -49,10 +35,8 @@ export default function Hero() {
       .finally(() => setLoading(false));
   }, [locale]);
 
-  const releasesUrl = "https://github.com/suhang12332/SwiftCraftLauncher/releases";
-
   const getDownloadUrl = (arch) => {
-    if (!latest) return releasesUrl;
+    if (!latest) return RELEASES_URL;
     const asset = findAsset(latest.assets, arch);
     if (asset) return proxyUrl(asset.browser_download_url);
     return `https://github.com/suhang12332/SwiftCraftLauncher/releases/tag/${latest.version}`;
