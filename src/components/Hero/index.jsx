@@ -45,7 +45,10 @@ export default function Hero() {
   const handleArchChange = (e) => {
     const arch = e.target.value;
     if (arch) {
-      window.open(getDownloadUrl(arch), "_blank", "noopener,noreferrer");
+      const a = document.createElement("a");
+      a.href = getDownloadUrl(arch);
+      a.download = "";
+      a.click();
       e.target.value = "";
     }
   };
