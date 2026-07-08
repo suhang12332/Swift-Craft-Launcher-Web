@@ -1,6 +1,6 @@
 export default {
   hero: {
-    tagline: "Swift Craft Launcher 是一款基於 SwiftUI 的原生 macOS Minecraft 啟動器，提供流暢的效能、完整的模組載入器支援、Microsoft 帳戶登入和直覺的遊戲管理。",
+    tagline: "一款基於 SwiftUI 的原生 macOS Minecraft 啟動器，提供流暢的效能、完整的模組載入器支援、Microsoft 帳戶登入和直覺的遊戲管理。",
     requirement: "需要 macOS 14.0 或更高版本",
     loading: "取得最新版本...",
     download: "下載",

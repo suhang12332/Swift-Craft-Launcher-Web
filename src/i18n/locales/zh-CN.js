@@ -1,6 +1,7 @@
 export default {
   hero: {
-    tagline: "Swift Craft Launcher 是一款基于 SwiftUI 的原生 macOS Minecraft 启动器，提供流畅的性能、完整的模组加载器支持、Microsoft 账户登录和直观的游戏管理。",
+    tagline:
+      "一款基于 SwiftUI 的原生 macOS Minecraft 启动器，提供流畅的性能、完整的模组加载器支持、Microsoft 账户登录和直观的游戏管理。",
     requirement: "需要 macOS 14.0 或更高版本",
     loading: "获取最新版本...",
     download: "下载",
@@ -31,6 +32,7 @@ export default {
     license: "AGPL v3 许可证",
     privacy: "隐私政策",
     copyright: "保留所有权利。",
-    disclaimer: "Swift Craft Launcher 不隶属于 Mojang Studios 或 Microsoft。Minecraft 是 Mojang Studios 的注册商标。",
+    disclaimer:
+      "Swift Craft Launcher 不隶属于 Mojang Studios 或 Microsoft。Minecraft 是 Mojang Studios 的注册商标。",
   },
 };

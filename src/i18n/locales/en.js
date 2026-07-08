@@ -1,6 +1,6 @@
 export default {
   hero: {
-    tagline: "Swift Craft Launcher is a native macOS Minecraft launcher built with SwiftUI, offering smooth performance, full mod loader support, Microsoft account login, and intuitive game management.",
+    tagline: "A native macOS Minecraft launcher built with SwiftUI, offering smooth performance, full mod loader support, Microsoft account login, and intuitive game management.",
     requirement: "Requires macOS 14.0 or later",
     loading: "Getting latest version...",
     download: "Download",

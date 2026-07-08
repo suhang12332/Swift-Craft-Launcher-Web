@@ -43,7 +43,7 @@ export default function Navbar() {
       <nav className={`globalnav ${scrolled ? 'globalnav--scrolled' : ''}`}>
         <div className="globalnav-content">
           <a href="#hero" className="globalnav-link globalnav-link-apple" aria-label="Swift Craft Launcher">
-            <span className="globalnav-link-text-compact globalnav-link-text-full">Swift Craft Launcher</span>
+            <span className="globalnav-link-text-compact globalnav-link-text-full">SCL</span>
             <span className="globalnav-link-text-compact globalnav-link-text-short">SCL</span>
           </a>
 
