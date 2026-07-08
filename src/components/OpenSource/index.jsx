@@ -68,6 +68,7 @@ export default function OpenSource() {
                   <Wrapper
                     key={user.name}
                     className="contributor-item"
+                    title={user.name}
                     {...wrapperProps}
                   >
                     <img
