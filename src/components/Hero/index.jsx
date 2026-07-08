@@ -69,7 +69,7 @@ export default function Hero() {
               defaultValue=""
             >
               <option value="" disabled>
-                {loading ? t.hero.loading : t.hero.download}
+                {loading ? t.hero.loading : `${t.hero.download} v${latest?.version || ""}`}
               </option>
               <option value="arm">{t.hero.appleChip}</option>
               <option value="intel">{t.hero.intel}</option>
