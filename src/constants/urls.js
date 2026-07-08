@@ -1,4 +1,4 @@
-export const GITHUB_REPO = "https://github.com/suhang12332/SwiftCraftLauncher";
+export const GITHUB_REPO = "https://github.com/suhang12332/Swift-Craft-Launcher";
 export const RELEASES_URL = `${GITHUB_REPO}/releases`;
 export const ISSUES_URL = `${GITHUB_REPO}/issues`;
 export const WIKI_URL = `${GITHUB_REPO}/wiki`;

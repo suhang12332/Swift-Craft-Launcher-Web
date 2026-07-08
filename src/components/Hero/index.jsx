@@ -19,7 +19,7 @@ export default function Hero() {
 
   useEffect(() => {
     fetch(
-      "https://api.github.com/repos/suhang12332/SwiftCraftLauncher/releases/latest",
+      "https://api.github.com/repos/suhang12332/Swift-Craft-Launcher/releases/latest",
     )
       .then((r) => r.json())
       .then((d) => {
@@ -39,7 +39,7 @@ export default function Hero() {
     if (!latest) return RELEASES_URL;
     const asset = findAsset(latest.assets, arch);
     if (asset) return proxyUrl(asset.browser_download_url);
-    return `https://github.com/suhang12332/SwiftCraftLauncher/releases/tag/${latest.version}`;
+    return `https://github.com/suhang12332/Swift-Craft-Launcher/releases/tag/${latest.version}`;
   };
 
   const handleArchChange = (e) => {
