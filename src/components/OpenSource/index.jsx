@@ -11,27 +11,29 @@ export default function OpenSource() {
   const { t } = useI18n();
   const [githubContributors, setGithubContributors] = useState([]);
   const [coreContributors, setCoreContributors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://swift-craft-launcher-contributors.suhang12332.workers.dev/contributors", { cache: "no-store" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setGithubContributors(data);
-        } else if (data.contributors) {
-          setGithubContributors(data.contributors);
-        }
-      })
-      .catch(() => {});
-
-    fetch("https://swift-craft-launcher-contributors.pages.dev/contributors.json", { cache: "no-store" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.contributors) {
-          setCoreContributors(data.contributors);
-        }
-      })
-      .catch(() => {});
+    Promise.all([
+      fetch("https://swift-craft-launcher-contributors.suhang12332.workers.dev/contributors", { cache: "no-store" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (Array.isArray(data)) {
+            setGithubContributors(data);
+          } else if (data.contributors) {
+            setGithubContributors(data.contributors);
+          }
+        })
+        .catch(() => {}),
+      fetch("https://swift-craft-launcher-contributors.pages.dev/contributors.json", { cache: "no-store" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.contributors) {
+            setCoreContributors(data.contributors);
+          }
+        })
+        .catch(() => {})
+    ]).finally(() => setLoading(false));
   }, []);
 
   return (
@@ -40,24 +42,26 @@ export default function OpenSource() {
         <div className="contributors-group">
           <h3 className="contributors-subtitle">{t.contributors.github}</h3>
           <div className="contributors-list">
-            {githubContributors.map((user) => (
-              <a
-                key={user.login}
-                href={user.html_url}
-                className="contributor-item"
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`${user.login} (${user.contributions} ${t.contributors.contributions})`}
-              >
-                <img
-                  src={user.avatar_url}
-                  alt={user.login}
-                  className="contributor-avatar"
-                  loading="lazy"
-                />
-                <span className="contributor-name">{user.login}</span>
-              </a>
-            ))}
+            {loading
+              ? <div className="contributors-spinner" />
+              : githubContributors.map((user) => (
+                  <a
+                    key={user.login}
+                    href={user.html_url}
+                    className="contributor-item"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${user.login} (${user.contributions} ${t.contributors.contributions})`}
+                  >
+                    <img
+                      src={user.avatar_url}
+                      alt={user.login}
+                      className="contributor-avatar"
+                      loading="lazy"
+                    />
+                    <span className="contributor-name">{user.login}</span>
+                  </a>
+                ))}
           </div>
         </div>
 

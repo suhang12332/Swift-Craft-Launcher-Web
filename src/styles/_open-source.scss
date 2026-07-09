@@ -69,3 +69,17 @@
   .open-source-section { padding: 60px 0; }
   .contributor-avatar { width: 36px; height: 36px; }
 }
+
+.contributors-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2.5px solid var(--border-color);
+  border-top-color: var(--color-text-dim);
+  border-radius: 50%;
+  animation: contributors-spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes contributors-spin {
+  to { transform: rotate(360deg); }
+}
