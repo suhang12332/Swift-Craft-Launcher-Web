@@ -4,6 +4,7 @@ export default {
       "一款基于 SwiftUI 的原生 macOS Minecraft 启动器，提供流畅的性能、完整的模组加载器支持、Microsoft 账户登录和直观的游戏管理。",
     requirement: "需要 macOS 14.0 或更高版本",
     loading: "获取最新版本...",
+    fetchError: "获取版本失败",
     download: "下载",
     appleChip: "Apple 芯片",
     intel: "Intel",

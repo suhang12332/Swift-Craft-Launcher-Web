@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useI18n } from "../../i18n";
-import { githubContributors, DEFAULT_AVATAR } from "./contributors";
+import { DEFAULT_AVATAR } from "./contributors";
 
 function getAvatar(url) {
   if (!url || !url.startsWith("http")) return DEFAULT_AVATAR;
@@ -9,12 +9,22 @@ function getAvatar(url) {
 
 export default function OpenSource() {
   const { t } = useI18n();
+  const [githubContributors, setGithubContributors] = useState([]);
   const [coreContributors, setCoreContributors] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://suhang12332.github.io/Swift-Craft-Launcher-Assets/contributors/contributors.json",
-    )
+    fetch("https://swift-craft-launcher-contributors.suhang12332.workers.dev/contributors", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setGithubContributors(data);
+        } else if (data.contributors) {
+          setGithubContributors(data.contributors);
+        }
+      })
+      .catch(() => {});
+
+    fetch("https://swift-craft-launcher-contributors.pages.dev/contributors.json", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (data.contributors) {

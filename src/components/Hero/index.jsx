@@ -4,13 +4,29 @@ import { useTheme } from "../ThemeContext";
 import { proxyUrl } from "../../utils/region";
 import { RELEASES_URL } from "../../constants/urls";
 
-function findAsset(assets, arch) {
-  return assets.find((a) => {
-    const name = a.name.toLowerCase();
-    if (!name.endsWith(".zip") && !name.endsWith(".dmg")) return false;
-    if (arch === "arm") return /arm|aarch/i.test(name);
-    return /x86|x64|intel/i.test(name);
-  });
+const APPCAST_BASE =
+  "https://swift-craft-launcher-update.suhang12332.workers.dev";
+
+function parseAppcast(xmlText) {
+  const doc = new DOMParser().parseFromString(xmlText, "text/xml");
+  const item = doc.querySelector("item");
+  if (!item) return null;
+  const version =
+    item.querySelector("sparkle\\:shortVersionString, shortVersionString")
+      ?.textContent || "";
+  const url =
+    item.querySelector("enclosure")?.getAttribute("url") || "";
+  return { version, url };
+}
+
+function fetchAppcast(arch) {
+  const filename = arch === "arm" ? "appcast-arm64.xml" : "appcast-x86_64.xml";
+  return fetch(`${APPCAST_BASE}/${filename}`, { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    })
+    .then(parseAppcast);
 }
 
 export default function Hero() {
@@ -18,30 +34,37 @@ export default function Hero() {
   const { theme } = useTheme();
   const [latest, setLatest] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
-    fetch(
-      "https://api.github.com/repos/suhang12332/Swift-Craft-Launcher/releases/latest",
-    )
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.tag_name) {
-          setLatest({
-            version: d.tag_name,
-            date: new Date(d.published_at).toLocaleDateString(locale),
-            assets: d.assets || [],
-          });
-        }
+    let cancelled = false;
+
+    fetchAppcast("arm")
+      .then((data) => {
+        if (cancelled || !data) throw new Error("parse failed");
+        setLatest({ version: data.version, downloads: { arm: data.url } });
+        // 拉 x86 补全下载链接
+        return fetchAppcast("intel");
       })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, [locale]);
+      .then((data) => {
+        if (cancelled || !data) return;
+        setLatest((prev) =>
+          prev ? { ...prev, downloads: { ...prev.downloads, intel: data.url } } : prev,
+        );
+      })
+      .catch(() => setFetchError(true))
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => { cancelled = true; };
+  }, []);
 
   const getDownloadUrl = (arch) => {
     if (!latest) return RELEASES_URL;
-    const asset = findAsset(latest.assets, arch);
-    if (asset) return proxyUrl(asset.browser_download_url);
-    return `https://github.com/suhang12332/Swift-Craft-Launcher/releases/tag/${latest.version}`;
+    if (arch === "arm" && latest.downloads?.arm) return proxyUrl(latest.downloads.arm);
+    if (arch === "intel" && latest.downloads?.intel) return proxyUrl(latest.downloads.intel);
+    return RELEASES_URL;
   };
 
   const handleArchChange = (e) => {
@@ -69,9 +92,14 @@ export default function Hero() {
               className="marquee-cta-btn marquee-select"
               onChange={handleArchChange}
               defaultValue=""
+              disabled={!loading && !latest}
             >
               <option value="" disabled>
-                {loading ? t.hero.loading : `${t.hero.download} v${latest?.version || ""}`}
+                {loading
+                  ? t.hero.loading
+                  : fetchError
+                    ? t.hero.fetchError
+                    : `${t.hero.download} v${latest?.version || ""}`}
               </option>
               <option value="arm">{t.hero.appleChip}</option>
               <option value="intel">{t.hero.intel}</option>

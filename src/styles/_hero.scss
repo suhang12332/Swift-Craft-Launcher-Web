@@ -86,18 +86,28 @@
   color: #fff;
 }
 
+.marquee-cta-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.marquee-cta-btn:disabled:hover {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+}
+
 /* --- Native Select Styling --- */
 .marquee-download-select {
   position: relative;
   display: inline-block;
+  overflow: visible;
 }
 
 .marquee-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: auto;
-  min-width: 0;
+  width: fit-content;
   padding: 10px 40px 10px 26px;
   text-align: center;
   cursor: pointer;
@@ -179,5 +189,4 @@
     padding-top: calc(var(--globalnav-height) + 20px);
   }
   .marquee-eyebrow { font-size: 30px; }
-  .marquee-select { padding: 8px 32px 8px 14px; }
 }
