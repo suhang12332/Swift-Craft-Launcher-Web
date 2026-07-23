@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { useI18n } from "../../i18n";
 import { useTheme } from "../ThemeContext";
-import { proxyUrl } from "../../utils/region";
 import { RELEASES_URL } from "../../constants/urls";
 
 const APPCAST_BASE =
   "https://swift-craft-launcher-update.suhang12332.workers.dev";
+
+const GITHUB_DOWNLOAD = "https://github.com/suhang12332/Swift-Craft-Launcher/releases/download";
+const DOWNLOAD_PROXY = "https://swift-craft-launcher-download.suhang12332.workers.dev";
+
+function toProxyUrl(url) {
+  return url.replace(GITHUB_DOWNLOAD, DOWNLOAD_PROXY);
+}
 
 function parseAppcast(xmlText) {
   const doc = new DOMParser().parseFromString(xmlText, "text/xml");
@@ -16,7 +22,7 @@ function parseAppcast(xmlText) {
       ?.textContent || "";
   const url =
     item.querySelector("enclosure")?.getAttribute("url") || "";
-  return { version, url };
+  return { version, url: toProxyUrl(url) };
 }
 
 function fetchAppcast(arch) {
@@ -62,8 +68,8 @@ export default function Hero() {
 
   const getDownloadUrl = (arch) => {
     if (!latest) return RELEASES_URL;
-    if (arch === "arm" && latest.downloads?.arm) return proxyUrl(latest.downloads.arm);
-    if (arch === "intel" && latest.downloads?.intel) return proxyUrl(latest.downloads.intel);
+    if (arch === "arm" && latest.downloads?.arm) return latest.downloads.arm;
+    if (arch === "intel" && latest.downloads?.intel) return latest.downloads.intel;
     return RELEASES_URL;
   };
 
