@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: 'GitHub', href: GITHUB_REPO, external: true },
     { label: 'Wiki', href: WIKI_URL, external: true },
     { label: t.navbar.reportIssue, href: ISSUES_URL, external: true },
-    { label: 'ZreadAI', href: 'https://zreadai.com', external: true },
+    { label: 'ZreadAI', href: 'https://zread.ai/suhang12332/Swift-Craft-Launcher', external: true },
   ];
 
   useEffect(() => {
