@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useI18n, getDocsUrl } from '../../i18n';
-import { RELEASES_URL, GITHUB_REPO, WIKI_URL, ISSUES_URL } from '../../constants/urls';
+import { RELEASES_URL, GITHUB_REPO, WIKI_URL, ISSUES_URL, DISCUSSIONS_URL } from '../../constants/urls';
 
 export default function Navbar() {
   const { t, locale } = useI18n();
@@ -12,6 +12,7 @@ export default function Navbar() {
     { label: t.navbar.changelog, href: RELEASES_URL, external: true },
     { label: 'GitHub', href: GITHUB_REPO, external: true },
     { label: 'Wiki', href: WIKI_URL, external: true },
+    { label: t.navbar.discussions, href: DISCUSSIONS_URL, external: true },
     { label: t.navbar.reportIssue, href: ISSUES_URL, external: true },
     { label: 'ZreadAI', href: 'https://zread.ai/suhang12332/Swift-Craft-Launcher', external: true },
   ];

@@ -16,6 +16,7 @@ export default {
   navbar: {
     docs: "Docs",
     changelog: "Changelog",
+    discussions: "Discussions",
     reportIssue: "Report Issue",
   },
   footer: {
@@ -24,6 +25,7 @@ export default {
     userGuide: "User Guide",
     changelog: "Changelog",
     community: "Community",
+    discussions: "Discussions",
     qqGroup: "QQ Group",
     bilibili: "Bilibili",
     feedback: "Feedback",

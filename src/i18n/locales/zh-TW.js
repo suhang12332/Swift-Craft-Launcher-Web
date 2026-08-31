@@ -16,6 +16,7 @@ export default {
   navbar: {
     docs: "文件",
     changelog: "版本歷史",
+    discussions: "討論區",
     reportIssue: "回報問題",
   },
   footer: {
@@ -24,6 +25,7 @@ export default {
     userGuide: "使用者指南",
     changelog: "版本歷史",
     community: "社群",
+    discussions: "討論區",
     qqGroup: "QQ群",
     bilibili: "Bilibili",
     feedback: "回饋",

@@ -1,5 +1,5 @@
 import { useI18n, getDocsUrl } from '../../i18n';
-import { RELEASES_URL, GITHUB_REPO, ISSUES_URL, LICENSE_URL, PRIVACY_URL } from '../../constants/urls';
+import { RELEASES_URL, GITHUB_REPO, ISSUES_URL, LICENSE_URL, PRIVACY_URL, DISCUSSIONS_URL } from '../../constants/urls';
 
 export default function Footer() {
   const { t, locale } = useI18n();
@@ -20,6 +20,7 @@ export default function Footer() {
             <h3 className="ac-globalfooter-directory-headline">{t.footer.community}</h3>
             <ul className="ac-globalfooter-directory-list">
               <li><a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href={DISCUSSIONS_URL} target="_blank" rel="noopener noreferrer">{t.footer.discussions}</a></li>
               <li><a href="#">{t.footer.qqGroup}</a></li>
               <li><a href="#">Discord</a></li>
               <li><a href="#">{t.footer.bilibili}</a></li>
