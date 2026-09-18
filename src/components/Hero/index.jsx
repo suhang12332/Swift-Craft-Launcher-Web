@@ -4,10 +4,10 @@ import { useTheme } from "../ThemeContext";
 import { RELEASES_URL } from "../../constants/urls";
 
 const APPCAST_BASE =
-  "https://swift-craft-launcher-update.suhang12332.workers.dev";
+  "https://swift-craft-launcher-api.pages.dev/api/update";
 
 const GITHUB_DOWNLOAD = "https://github.com/suhang12332/Swift-Craft-Launcher/releases/download";
-const DOWNLOAD_PROXY = "https://swift-craft-launcher-download.suhang12332.workers.dev";
+const DOWNLOAD_PROXY = "https://swift-craft-launcher-api.pages.dev/api/download";
 
 function toProxyUrl(url) {
   return url.replace(GITHUB_DOWNLOAD, DOWNLOAD_PROXY);

@@ -15,7 +15,7 @@ export default function OpenSource() {
 
   useEffect(() => {
     Promise.all([
-      fetch("https://swift-craft-launcher-contributors.suhang12332.workers.dev/contributors", { cache: "no-store" })
+      fetch("https://swift-craft-launcher-api.pages.dev/api/contributors", { cache: "no-store" })
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data)) {
