@@ -33,7 +33,6 @@ export default {
     reportIssue: "报告问题",
     legal: "协议",
     license: "AGPL v3 许可证",
-    privacy: "隐私政策",
     copyright: "保留所有权利。",
     disclaimer:
       "Swift Craft Launcher 不隶属于 Mojang Studios 或 Microsoft。Minecraft 是 Mojang Studios 的注册商标。",

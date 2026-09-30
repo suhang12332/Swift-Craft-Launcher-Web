@@ -1,9 +1,16 @@
 import { useI18n, getDocsUrl } from '../../i18n';
-import { RELEASES_URL, GITHUB_REPO, ISSUES_URL, LICENSE_URL, PRIVACY_URL, DISCUSSIONS_URL } from '../../constants/urls';
+import { RELEASES_URL, GITHUB_REPO, ISSUES_URL, LICENSE_URL, DISCUSSIONS_URL, QQ_GROUP_URL, DISCORD_URL, BILIBILI_URL } from '../../constants/urls';
 
 export default function Footer() {
   const { t, locale } = useI18n();
   const year = new Date().getFullYear();
+  const communityLinks = [
+    { label: 'GitHub', url: GITHUB_REPO },
+    { label: t.footer.discussions, url: DISCUSSIONS_URL },
+    { label: t.footer.qqGroup, url: QQ_GROUP_URL },
+    { label: 'Discord', url: DISCORD_URL },
+    { label: t.footer.bilibili, url: BILIBILI_URL },
+  ].filter((link) => link.url);
   return (
     <footer className="ac-globalfooter">
       <div className="ac-globalfooter-content">
@@ -19,11 +26,11 @@ export default function Footer() {
           <div className="ac-globalfooter-directory-column">
             <h3 className="ac-globalfooter-directory-headline">{t.footer.community}</h3>
             <ul className="ac-globalfooter-directory-list">
-              <li><a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href={DISCUSSIONS_URL} target="_blank" rel="noopener noreferrer">{t.footer.discussions}</a></li>
-              <li><a href="#">{t.footer.qqGroup}</a></li>
-              <li><a href="#">Discord</a></li>
-              <li><a href="#">{t.footer.bilibili}</a></li>
+              {communityLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="ac-globalfooter-directory-column">
@@ -36,7 +43,6 @@ export default function Footer() {
             <h3 className="ac-globalfooter-directory-headline">{t.footer.legal}</h3>
             <ul className="ac-globalfooter-directory-list">
               <li><a href={LICENSE_URL} target="_blank" rel="noopener noreferrer">{t.footer.license}</a></li>
-              <li><a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer">{t.footer.privacy}</a></li>
             </ul>
           </div>
         </div>

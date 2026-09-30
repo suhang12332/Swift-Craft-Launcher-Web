@@ -32,7 +32,6 @@ export default {
     reportIssue: "Report Issue",
     legal: "Legal",
     license: "AGPL v3 License",
-    privacy: "Privacy Policy",
     copyright: "All rights reserved.",
     disclaimer: "Swift Craft Launcher is not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang Studios.",
   },
