@@ -34,7 +34,7 @@
 }
 
 .marquee-eyebrow {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 600;
   letter-spacing: 0.009em;
   color: var(--color-text);
@@ -43,7 +43,7 @@
 }
 
 .marquee-tagline {
-  font-size: clamp(15px, 2vw, 16px);
+  font-size: 21px;
   font-weight: 400;
   letter-spacing: 0.011em;
   line-height: 1.381;
@@ -182,5 +182,5 @@
     min-height: 480px;
     padding-top: calc(var(--globalnav-height) + 20px);
   }
-  .marquee-eyebrow { font-size: 30px; }
+  .marquee-eyebrow { font-size: 38px; }
 }

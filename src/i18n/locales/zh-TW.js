@@ -8,6 +8,53 @@ export default {
     appleChip: "Apple 晶片",
     intel: "Intel",
   },
+  features: {
+    title: "強大功能，一目瞭然",
+    subtitle: "從帳戶登入到模組管理，把複雜的操作變得簡單。",
+    items: [
+      {
+        title: "原生 Swift，快如閃電",
+        body: "基於 SwiftUI 打造，啟動迅速、介面流暢，完整支援深色模式與 macOS 系統特性，帶來真正原生的使用體驗。",
+      },
+      {
+        title: "Microsoft 帳戶，一步登入",
+        body: "安全連接 Microsoft 與 Xbox 帳戶，輕鬆管理多個角色，隨時切換，登入狀態長久保持。",
+      },
+      {
+        title: "皮膚管理，隨心切換",
+        body: "內建皮膚預覽與管理，隨時查看角色外觀，一鍵切換皮膚，所見即所得。",
+      },
+    ],
+    moreTitle: "還有更多",
+    moreCta: "還有更多功能，等你在啟動器裡親自發現。",
+    moreCtaLink: "下載啟動器開始探索",
+    more: [
+      {
+        title: "模組載入器",
+        body: "Fabric、Forge、NeoForge 與 Quilt 全支援，一鍵安裝、一鍵切換。",
+      },
+      {
+        title: "遊戲實例",
+        body: "多版本、多實例獨立設定，模組與存檔互不干擾。",
+      },
+      {
+        title: "自動更新",
+        body: "內建自動更新，新版本發布後第一時間提示升級。",
+      },
+      {
+        title: "深色模式",
+        body: "跟隨系統外觀，與 macOS 無縫一致。",
+      },
+      {
+        title: "多語言",
+        body: "介面支援 22 種語言，涵蓋全球主要地區。",
+      },
+      {
+        title: "開源免費",
+        body: "基於 AGPL v3 開源，程式碼透明，永久免費使用。",
+      },
+    ],
+  },
   contributors: {
     github: "GitHub貢獻者",
     core: "核心貢獻者",

@@ -24,6 +24,9 @@
   --font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --max-content: 980px;
   --max-wide: 1200px;
+  --img-shadow:
+    0 24px 60px -24px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,4 +56,7 @@ button { font-family: inherit; }
   --btn-bg: #1d1d1f;
   --btn-bg-hover: #424245;
   --btn-color: #ffffff;
+  --img-shadow:
+    0 24px 60px -24px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(0, 0, 0, 0.07);
 }

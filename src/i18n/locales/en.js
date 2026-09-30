@@ -8,6 +8,53 @@ export default {
     appleChip: "Apple Silicon",
     intel: "Intel",
   },
+  features: {
+    title: "Powerful features, beautifully simple",
+    subtitle: "From account sign-in to mod management, the complex becomes effortless.",
+    items: [
+      {
+        title: "Native Swift, blazing fast",
+        body: "Built with SwiftUI for instant launches and fluid interactions, with full support for Dark Mode and the latest macOS features.",
+      },
+      {
+        title: "Sign in with Microsoft",
+        body: "Connect your Microsoft and Xbox accounts securely, switch between profiles in a click, and stay signed in.",
+      },
+      {
+        title: "Skins, always in sync",
+        body: "Preview and switch skins in a click, with your character's look always up to date.",
+      },
+    ],
+    moreTitle: "And so much more",
+    moreCta: "There's even more waiting for you inside the launcher.",
+    moreCtaLink: "Download to explore",
+    more: [
+      {
+        title: "Mod loaders",
+        body: "Fabric, Forge, NeoForge and Quilt — install and switch with one click.",
+      },
+      {
+        title: "Game instances",
+        body: "Keep versions and instances separate, so mods and saves never conflict.",
+      },
+      {
+        title: "Automatic updates",
+        body: "Built-in updates let you know the moment a new version is available.",
+      },
+      {
+        title: "Dark Mode",
+        body: "Follows the system appearance for a seamless look with macOS.",
+      },
+      {
+        title: "Languages",
+        body: "The interface speaks 22 languages, covering regions worldwide.",
+      },
+      {
+        title: "Open source",
+        body: "Free and open source under AGPL v3 — transparent by design.",
+      },
+    ],
+  },
   contributors: {
     github: "GitHub Contributors",
     core: "Core Contributors",
