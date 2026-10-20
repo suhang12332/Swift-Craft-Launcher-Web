@@ -45,5 +45,5 @@ const DOCS_LOCALE_MAP = {
 
 export function getDocsUrl(locale) {
   const path = DOCS_LOCALE_MAP[locale] || "en.lproj";
-  return `https://doc.scl.isiah.top/${path}/`;
+  return `https://swift-craft-launcher-assets-doc.pages.dev/${path}/`;
 }
