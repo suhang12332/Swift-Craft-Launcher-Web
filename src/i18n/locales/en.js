@@ -42,8 +42,8 @@ export default {
         body: "Powered by Sparkle, updates let you know the moment a new version is released.",
       },
       {
-        title: "Dark Mode",
-        body: "Follows the system appearance for a seamless look with macOS.",
+        title: "Native UI",
+        body: "Built entirely with native macOS controls and design language, following the system's light and dark appearance automatically.",
       },
       {
         title: "Languages",
