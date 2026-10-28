@@ -39,7 +39,7 @@ export default {
       },
       {
         title: "Automatic updates",
-        body: "Built-in updates let you know the moment a new version is available.",
+        body: "Powered by Sparkle, updates let you know the moment a new version is released.",
       },
       {
         title: "Dark Mode",
