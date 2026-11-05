@@ -52,6 +52,13 @@
   letter-spacing: 0;
 }
 
+.globalnav-logo {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .globalnav-link-text-compact {
   font-size: 1.5em;
   font-weight: 600;

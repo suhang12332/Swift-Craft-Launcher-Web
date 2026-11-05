@@ -44,6 +44,14 @@ export default function Navbar() {
       <nav className={`globalnav ${scrolled ? 'globalnav--scrolled' : ''}`}>
         <div className="globalnav-content">
           <a href="#hero" className="globalnav-link globalnav-link-apple" aria-label="Swift Craft Launcher">
+            <img
+              className="globalnav-logo"
+              src="/app-icon-64.png"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
             <span className="globalnav-link-text-compact globalnav-link-text-full">SCL</span>
             <span className="globalnav-link-text-compact globalnav-link-text-short">SCL</span>
           </a>
