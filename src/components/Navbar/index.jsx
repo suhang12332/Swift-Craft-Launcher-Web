@@ -46,7 +46,7 @@ export default function Navbar() {
           <a href="#hero" className="globalnav-link globalnav-link-apple" aria-label="Swift Craft Launcher">
             <img
               className="globalnav-logo"
-              src="/app-icon-64.png"
+              src="https://raw.githubusercontent.com/suhang12332/Swift-Craft-Launcher/main/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac32pt2x.png"
               alt=""
               width="28"
               height="28"
