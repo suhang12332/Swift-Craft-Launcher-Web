@@ -3,7 +3,6 @@ import { RELEASES_URL, GITHUB_REPO, ISSUES_URL, LICENSE_URL, DISCUSSIONS_URL, QQ
 
 export default function Footer() {
   const { t, locale } = useI18n();
-  const year = new Date().getFullYear();
   const communityLinks = [
     { label: 'GitHub', url: GITHUB_REPO },
     { label: t.footer.discussions, url: DISCUSSIONS_URL },
@@ -49,7 +48,7 @@ export default function Footer() {
 
         <div className="ac-globalfooter-bottom">
           <p className="ac-globalfooter-copyright">
-            Copyright © 2025-{year} Swift Craft Launcher. {t.footer.copyright}
+            Copyright © 2025 Swift Craft Launcher. {t.footer.copyright}
           </p>
           <p className="ac-globalfooter-disclaimer">
             {t.footer.disclaimer}
