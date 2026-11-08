@@ -1,0 +1,46 @@
+{
+  "host": "https://web.scl.isiah.top",
+  "title": "Swift Craft Launcher",
+  "description": "A lightweight, native Minecraft launcher for macOS, built with Swift and SwiftUI.",
+  "repositoryUrl": "https://github.com/suhang12332/Swift-Craft-Launcher",
+  "assets": {
+    "appIcon32": "https://raw.githubusercontent.com/suhang12332/Swift-Craft-Launcher/refs/heads/main/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac32pt1x.png",
+    "appIcon128": "https://raw.githubusercontent.com/suhang12332/Swift-Craft-Launcher/refs/heads/main/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac128pt1x.png"
+  },
+  "pages": {
+    "/": {
+      "title": "Overview",
+      "description": "A lightweight, native Minecraft launcher for macOS, built with Swift and SwiftUI."
+    },
+    "https://github.com/suhang12332/Swift-Craft-Launcher/wiki": {
+      "title": "Documentation",
+      "description": "Swift Craft Launcher documentation and guides."
+    },
+    "https://github.com/suhang12332/Swift-Craft-Launcher": {
+      "title": "GitHub",
+      "description": "Swift Craft Launcher GitHub repository."
+    },
+    "https://discord.gg/gYESVa3CZd": {
+      "title": "Discord",
+      "description": "Join the Swift Craft Launcher Discord community."
+    }
+  },
+  "links": {
+    "githubOrg": "https://github.com/suhang12332",
+    "githubRepo": "https://github.com/suhang12332/Swift-Craft-Launcher",
+    "githubIssues": "https://github.com/suhang12332/Swift-Craft-Launcher/issues",
+    "githubDiscussions": "https://github.com/suhang12332/Swift-Craft-Launcher/discussions",
+    "githubWiki": "https://github.com/suhang12332/Swift-Craft-Launcher/wiki",
+    "latestRelease": "https://github.com/suhang12332/Swift-Craft-Launcher/releases/latest",
+    "releases": "https://github.com/suhang12332/Swift-Craft-Launcher/releases",
+    "discord": "https://discord.gg/gYESVa3CZd",
+    "qq": "https://qm.qq.com/cgi-bin/qm/qr?k=1057517524",
+    "bilibili": "https://space.bilibili.com/627351279",
+    "license": "https://github.com/suhang12332/Swift-Craft-Launcher/blob/main/LICENSE"
+  },
+  "navigation": [
+    "/",
+    "https://github.com/suhang12332/Swift-Craft-Launcher/wiki",
+    "https://github.com/suhang12332/Swift-Craft-Launcher"
+  ]
+}
