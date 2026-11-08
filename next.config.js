@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   images: {
     // Keep the site dependency-light: serve artwork and remote icons as-is.
@@ -26,12 +27,5 @@ const nextConfig = {
     return config;
   },
 };
-
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true, // 静态导出不能用 Next.js 图片优化器
-  },
-}
 
 module.exports = nextConfig;
