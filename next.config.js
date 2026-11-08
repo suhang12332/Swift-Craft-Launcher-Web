@@ -27,4 +27,11 @@ const nextConfig = {
   },
 };
 
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true, // 静态导出不能用 Next.js 图片优化器
+  },
+}
+
 module.exports = nextConfig;
