@@ -1,11 +1,6 @@
 # Swift Craft Launcher Website
 
-The single-page marketing site for [Swift Craft Launcher](https://github.com/suhang12332/Swift-Craft-Launcher),
-a lightweight, native Minecraft launcher for macOS built with Swift and SwiftUI.
-
-Built with Next.js (Pages Router), styled-components, and react-feather, with a
-responsive layout, automatic light/dark appearance, and English, Simplified
-Chinese, and Traditional Chinese localization.
+The official website for Swift Craft Launcher, built with React.
 
 ## Run locally
 
