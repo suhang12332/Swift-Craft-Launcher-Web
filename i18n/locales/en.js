@@ -75,6 +75,17 @@ export default {
     },
   },
   footer: {
+    product: 'Product',
+    download: 'Download',
+    userGuide: 'User Guide',
+    changelog: 'Changelog',
+    community: 'Community',
+    discussions: 'Discussions',
+    qqGroup: 'QQ Group',
+    bilibili: 'Bilibili',
+    feedback: 'Feedback',
+    reportIssue: 'Report Issue',
+    legal: 'Legal',
     disclaimer:
       'Swift Craft Launcher is not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang Studios.',
     copyright: 'Copyright © 2025',

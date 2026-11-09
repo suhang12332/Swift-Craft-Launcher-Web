@@ -74,6 +74,17 @@ export default {
     },
   },
   footer: {
+    product: '产品',
+    download: '下载',
+    userGuide: '用户指南',
+    changelog: '版本历史',
+    community: '社区',
+    discussions: '讨论区',
+    qqGroup: 'QQ群',
+    bilibili: 'Bilibili',
+    feedback: '反馈',
+    reportIssue: '报告问题',
+    legal: '协议',
     disclaimer:
       'Swift Craft Launcher 不隶属于 Mojang Studios 或 Microsoft。Minecraft 是 Mojang Studios 的注册商标。',
     copyright: '版权所有 © 2025',

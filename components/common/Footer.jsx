@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SocialSection from './SocialSection';
+import FooterDirectory from './FooterDirectory';
 import ContributorsSection from './ContributorsSection';
 import { useI18n } from '@/i18n';
 import { mediaQueries } from '@/styles/breakpoints';
@@ -19,7 +19,7 @@ const FooterWrap = styled.footer`
   box-sizing: content-box;
 
   a {
-    color: var(--glyph-blue);
+    color: var(--label-tertiary-color);
 
     :hover {
       text-decoration: underline;
@@ -110,7 +110,7 @@ function Footer() {
       <FooterContent>
         <ContributorsSection />
         <ContributorsDivider />
-        <SocialSection />
+        <FooterDirectory />
         <FooterMini>
           <Disclaimer>{t.footer.disclaimer}</Disclaimer>
           <FooterDivider />

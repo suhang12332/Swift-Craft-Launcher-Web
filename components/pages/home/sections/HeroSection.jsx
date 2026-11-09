@@ -9,6 +9,21 @@ import { useI18n } from '@/i18n';
 import HeroImage from '../HeroImage';
 import config from '@/data/config.json';
 
+const HeroHeadline = styled(Typography)`
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 0em;
+`;
+
+const HeroDescription = styled(Typography)`
+  font-size: 21px;
+  line-height: 1.381002381;
+  font-weight: 400;
+  letter-spacing: 0.011em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+`;
+
 const ProductIconWrap = styled.div`
   width: 128px;
   margin-left: auto;
@@ -52,16 +67,16 @@ const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
                       priority
                     />
                   </ProductIconWrap>
-                  <Typography variant="headline-elevated">
+                  <HeroHeadline variant="headline-elevated">
                     {t.hero.headline}
-                  </Typography>
-                  <Typography
+                  </HeroHeadline>
+                  <HeroDescription
                     variant="intro-elevated"
-                    color="tertiary"
+                    color="primary"
                     gutterBottom
                   >
                     {t.hero.description}
-                  </Typography>
+                  </HeroDescription>
                   <Button
                     size="lg"
                     href={downloadLoading ? undefined : downloadUrl}
