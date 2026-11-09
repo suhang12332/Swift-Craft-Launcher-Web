@@ -28,11 +28,15 @@ const Group = styled.div`
 `;
 
 const ContributorList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(13, 64px);
+  justify-content: space-between;
+  row-gap: 24px;
   margin-top: 24px;
+
+  @media ${mediaQueries.md} {
+    grid-template-columns: repeat(auto-fit, 64px);
+  }
 `;
 
 const ContributorItem = styled.a`
@@ -135,7 +139,7 @@ const ContributorsSection = () => {
   }, []);
 
   return (
-    <Section id="contributors" gutterX={0} gutterTop={8} gutterBottom={0}>
+    <Section id="contributors" gutterX={0} gutterTop={4} gutterBottom={0}>
       <Group>
         <Typography variant="eyebrow-reduced" as="h3">
           {t.contributors.github}

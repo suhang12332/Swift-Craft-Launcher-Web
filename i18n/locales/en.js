@@ -22,28 +22,34 @@ export default {
   },
   features: {
     native: {
-      title: 'Native Swift, blazing fast',
-      body: 'Built with SwiftUI for instant launches and fluid interactions, with full support for Dark Mode and the latest macOS features.',
+      category: 'Native performance',
+      title: 'Built with SwiftUI. Blazing fast.',
+      body: 'Every screen uses native macOS controls and follows the system appearance automatically, so launches are instant and interactions feel like part of the OS. Thanks to the performance of Swift and SwiftUI, the launcher stays smooth when opening large instance lists, loading mods, or moving between pages — no stutters and no waiting. Browsing instances, changing settings, and getting into the game all feel as natural as using a built-in app, with support for window management, full screen, trackpad gestures, and accessibility. It is designed to fit right into your desktop.',
     },
     account: {
-      title: 'Microsoft account, one-step login',
-      body: 'Connect your Microsoft and Xbox accounts securely, switch between profiles in a click, and stay signed in.',
+      category: 'Account',
+      title: 'Sign in with Microsoft in one step',
+      body: 'Connect Microsoft and Xbox accounts securely and stay signed in between sessions, so there is no need to re-enter your password every time you launch the app. Manage multiple profiles and switch between them whenever you like, with each profile keeping its own skin, cape, and login details. Credentials are stored safely using the system security mechanisms, making everyday use convenient without putting your account at risk.',
     },
     skins: {
-      title: 'Skins, always in sync',
-      body: "Preview and switch skins in a click, with your character's look always up to date.",
+      category: 'Customization',
+      title: 'Preview and switch skins anytime',
+      body: "Preview and manage skins right in the launcher. Upload or choose a skin and see your character's look update instantly, then switch in one click — no need to launch the game to check the result. You can revisit saved skins, compare different looks, and decide how you want to appear in your next adventure, all without leaving the app.",
     },
     modLoaders: {
-      title: 'Mod loaders',
-      body: 'Fabric, Forge, NeoForge and Quilt — install and switch with one click.',
+      category: 'Modpacks',
+      title: 'Install a modpack and start playing',
+      body: 'Pick a modpack and the launcher sets up the right Fabric, Forge, NeoForge, or Quilt loader along with its mods and configuration. Loader versions, mods, and settings are prepared in one go, so there is no manual installation or dependency hunting — just choose a pack and play. Each modpack stays isolated from the others, so upgrading or changing a version never affects your other instances and modding stays simple and reliable.',
     },
     instances: {
-      title: 'Game instances',
-      body: 'Keep versions and instances separate, so mods and saves never conflict.',
+      category: 'Instances',
+      title: 'Give every world its own game instance',
+      body: 'Each version and modpack gets its own mods, saves, and settings, so switching between them never disturbs the others and nothing needs setting up twice. Create separate instances for survival, creative, or different modpacks, and let every world keep its own rhythm. The instance list shows each world\'s version, loader, and last played time, so getting back into any of them takes a single click.',
     },
     updates: {
-      title: 'Always up to date',
-      body: 'Powered by Sparkle, updates let you know the moment a new version is released.',
+      category: 'Updates',
+      title: 'Know the moment an update ships',
+      body: 'Powered by Sparkle, the launcher lets you know as soon as a new version is available. Updates are quick and reliable — no re-downloading the app or migrating your data by hand, so you are always on the latest fixes and improvements. You can also check for updates at any time and see what changed in each release, keeping the launcher in the best possible shape.',
     },
   },
   contributors: {
@@ -51,28 +57,6 @@ export default {
     core: 'Core Contributors',
     contributions: 'contributions',
     loading: 'Loading contributors',
-  },
-  social: {
-    discord: {
-      title: 'Join the conversation',
-      body: 'Join the Discord community to chat with other players and contributors.',
-      action: 'Join Discord',
-    },
-    github: {
-      title: 'Start Contributing',
-      body: 'Help shape the future of Swift Craft Launcher. Become a contributor today.',
-      action: 'Check it out',
-    },
-    qq: {
-      title: 'Join the QQ Group',
-      body: 'Official QQ group 1057517524. Get help and share your experience with other players.',
-      action: 'Join the group',
-    },
-    bilibili: {
-      title: 'Follow on Bilibili',
-      body: 'Watch tutorials, showcases, and the latest updates from Swift Craft Launcher.',
-      action: 'Follow us',
-    },
   },
   footer: {
     product: 'Product',
@@ -86,6 +70,9 @@ export default {
     feedback: 'Feedback',
     reportIssue: 'Report Issue',
     legal: 'Legal',
+    followUs: 'Follow us on',
+    followSeparator: ', ',
+    followLastSeparator: ', and ',
     disclaimer:
       'Swift Craft Launcher is not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang Studios.',
     copyright: 'Copyright © 2025',

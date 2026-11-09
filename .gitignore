@@ -8,6 +8,9 @@
 /out/
 /build
 
+# local image backups
+/assets/features-originals
+
 # misc
 .DS_Store
 *.pem

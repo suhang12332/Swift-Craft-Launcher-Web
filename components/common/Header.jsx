@@ -10,13 +10,12 @@ import { breakpoints, mediaQueries } from '@/styles/breakpoints';
 import config from '@/data/config.json';
 
 const Nav = styled.nav`
-  position: relative;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 52px;
   z-index: 9997;
-  position: sticky;
 
   * {
     box-sizing: content-box;
@@ -150,7 +149,6 @@ const MenuItems = styled.ul`
 
 const MenuItem = styled.li`
   margin-left: 24px;
-  float: left;
   list-style: none;
   display: flex;
   gap: 4px;
@@ -201,8 +199,6 @@ const Actions = styled.div`
     z-index: 1;
   }
 `;
-
-const Action = styled.div``;
 
 const MenuToggle = styled.button`
   margin: 0 6px 0 0;
@@ -357,33 +353,27 @@ function Header() {
               </MenuItems>
             </MenuTray>
             <Actions>
-              <Action>
-                <MenuToggle
-                  type="button"
-                  aria-label={
-                    menuOpen ? t.common.closeMenu : t.common.openMenu
-                  }
-                  aria-expanded={menuOpen}
-                  aria-controls="mobile-navigation"
-                  onClick={() => setMenuOpen((open) => !open)}
-                >
-                  <MenuChevron $open={menuOpen} />
-                </MenuToggle>
-              </Action>
-              <Action>
-                <Button
-                  size="sm"
-                  href={downloadLoading ? undefined : downloadUrl}
-                  aria-disabled={downloadLoading}
-                  onClick={
-                    downloadLoading
-                      ? (event) => event.preventDefault()
-                      : undefined
-                  }
-                >
-                  {t.common.download}
-                </Button>
-              </Action>
+              <MenuToggle
+                type="button"
+                aria-label={menuOpen ? t.common.closeMenu : t.common.openMenu}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-navigation"
+                onClick={() => setMenuOpen((open) => !open)}
+              >
+                <MenuChevron $open={menuOpen} />
+              </MenuToggle>
+              <Button
+                size="sm"
+                href={downloadLoading ? undefined : downloadUrl}
+                aria-disabled={downloadLoading}
+                onClick={
+                  downloadLoading
+                    ? (event) => event.preventDefault()
+                    : undefined
+                }
+              >
+                {t.common.download}
+              </Button>
             </Actions>
           </Menu>
         </HeaderContainer>

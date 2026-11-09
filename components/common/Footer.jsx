@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import FooterDirectory from './FooterDirectory';
+// import FooterDirectory from './FooterDirectory';
 import ContributorsSection from './ContributorsSection';
 import { useI18n } from '@/i18n';
 import { mediaQueries } from '@/styles/breakpoints';
@@ -21,7 +21,7 @@ const FooterWrap = styled.footer`
   a {
     color: var(--label-tertiary-color);
 
-    :hover {
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -35,27 +35,60 @@ const FooterContent = styled.div`
   padding-right: calc(max(22px, env(safe-area-inset-right)));
 `;
 
-const ContributorsDivider = styled.hr`
-  margin: 40px 0 0;
-  border: 0;
-  border-top: 1px solid var(--separator-color);
-`;
-
 const FooterMini = styled.section`
   padding-top: 34px;
   padding-bottom: calc(max(21px, env(safe-area-inset-bottom)));
-  color: #86868b;
+`;
+
+const FooterTop = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+
+  @media ${mediaQueries.sm} {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const Disclaimer = styled.p`
-  margin: 0 0 9px;
+  margin: 0;
+  max-width: 640px;
   color: var(--glyph-gray-tertiary);
+  font-weight: 300;
+`;
+
+const FollowUs = styled.p`
+  flex-shrink: 0;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--separator-color);
+  color: var(--glyph-gray-tertiary);
+  font-weight: 300;
+  white-space: nowrap;
+
+  a {
+    color: var(--glyph-blue);
+    font-weight: 300;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media ${mediaQueries.sm} {
+    padding-top: 8px;
+    padding-left: 0;
+    border-top: 1px solid var(--separator-color);
+    border-left: 0;
+    white-space: normal;
+  }
 `;
 
 const FooterDivider = styled.div`
-  margin-bottom: 7px;
-  border-bottom: 1px solid #d2d2d7;
-  border-color: var(--separator-color);
+  margin: 12px 0 7px;
+  border-bottom: 1px solid var(--separator-color);
 `;
 
 const LegalLinks = styled.div`
@@ -63,14 +96,13 @@ const LegalLinks = styled.div`
   flex-wrap: wrap;
 
   a {
-    border-right: 1px solid #d2d2d7;
+    border-right: 1px solid var(--fill-gray-tertiary);
     margin-right: 7px;
     padding-right: 10px;
     display: inline-block;
     margin-top: 5px;
     white-space: nowrap;
     color: var(--glyph-gray-secondary-alt);
-    border-color: var(--fill-gray-tertiary);
 
     &:last-child {
       border: 0;
@@ -87,7 +119,7 @@ const MiniFooterBottom = styled.div`
   a {
     color: var(--glyph-gray-secondary-alt);
 
-    :hover {
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -100,19 +132,43 @@ const MiniFooterBottom = styled.div`
 function Footer() {
   const { t } = useI18n();
 
+  const followLinks = [
+    { label: t.footer.bilibili, href: config.links.bilibili },
+    { label: t.footer.qqGroup, href: config.links.qq },
+    { label: 'Discord', href: config.links.discord },
+    { label: 'GitHub', href: config.links.githubRepo },
+  ];
+
   return (
-    <FooterWrap
-      id="footer"
-      className="footer"
-      role="contentinfo"
-      aria-labelledby="footer-label"
-    >
+    <FooterWrap id="footer" role="contentinfo">
       <FooterContent>
         <ContributorsSection />
-        <ContributorsDivider />
-        <FooterDirectory />
+        {/* <FooterDirectory /> */}
         <FooterMini>
-          <Disclaimer>{t.footer.disclaimer}</Disclaimer>
+          <FooterTop>
+            <Disclaimer>{t.footer.disclaimer}</Disclaimer>
+            <FollowUs>
+              {t.footer.followUs}{' '}
+              {followLinks.map((link, index) => (
+                <span key={link.href}>
+                  {index > 0 && (
+                    <span aria-hidden="true">
+                      {index === followLinks.length - 1
+                        ? t.footer.followLastSeparator
+                        : t.footer.followSeparator}
+                    </span>
+                  )}
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                </span>
+              ))}
+            </FollowUs>
+          </FooterTop>
           <FooterDivider />
           <MiniFooterBottom>
             <div>

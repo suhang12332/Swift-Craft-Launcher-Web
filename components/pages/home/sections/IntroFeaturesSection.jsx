@@ -1,49 +1,68 @@
-import { useMemo } from 'react';
-import {
-  Zap,
-  User,
-  Smile,
-  Package,
-  Layers,
-  RefreshCw,
-} from 'react-feather';
+import Image from 'next/image';
+import styled from 'styled-components';
 import Typography from '@/components/common/Typography';
-import { Grid, GridItem, Section, Stack } from '@/components/common/layout';
-import { useSite } from '@/components/common/Site';
+import { Section, Stack } from '@/components/common/layout';
 import { useI18n } from '@/i18n';
+import { mediaQueries } from '@/styles/breakpoints';
 
 const FEATURES = [
-  { key: 'native', Icon: Zap },
-  { key: 'account', Icon: User },
-  { key: 'skins', Icon: Smile },
-  { key: 'modLoaders', Icon: Package },
-  { key: 'instances', Icon: Layers },
-  { key: 'updates', Icon: RefreshCw },
+  'native',
+  'account',
+  'skins',
+  'modLoaders',
+  'instances',
+  'updates',
 ];
 
-const IntroFeaturesSection = () => {
-  const { breakpoint } = useSite();
-  const { t } = useI18n();
+const FeatureList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 
-  const gap = useMemo(() => (breakpoint === 'xs' ? 24 : 40), [breakpoint]);
+  @media ${mediaQueries.sm} {
+    gap: 56px;
+  }
+`;
+
+const FeatureImage = styled.div`
+  margin-top: 16px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const IntroFeaturesSection = () => {
+  const { t } = useI18n();
 
   return (
     <Section contained gutterBottom={20}>
-      <Grid columns={{ xs: 1, lg: 2 }} gap={{ xs: 6, lg: 12 }}>
-        {FEATURES.map(({ key, Icon }) => (
-          <GridItem key={key}>
-            <Stack>
-              <Icon size={gap} />
-              <Typography variant="intro" gutterTop>
-                {t.features[key].title}
-              </Typography>
-              <Typography variant="intro" style={{ opacity: 0.5 }}>
-                {t.features[key].body}
-              </Typography>
-            </Stack>
-          </GridItem>
+      <FeatureList>
+        {FEATURES.map((key) => (
+          <Stack key={key} gap={2}>
+            <Typography variant="eyebrow-reduced" as="h3" color="tertiary">
+              {t.features[key].category}
+            </Typography>
+            <Typography variant="headline-reduced" as="h2">
+              {t.features[key].title}
+            </Typography>
+            <Typography variant="body" color="tertiary">
+              {t.features[key].body}
+            </Typography>
+            <FeatureImage>
+              <Image
+                src={`/features/${key.toLowerCase()}.png`}
+                alt={t.features[key].title}
+                width={1920}
+                height={1263}
+                sizes="(max-width: 767px) calc(100vw - 32px), 936px"
+              />
+            </FeatureImage>
+          </Stack>
         ))}
-      </Grid>
+      </FeatureList>
     </Section>
   );
 };
