@@ -318,10 +318,11 @@ function Header() {
         <HeaderContainer>
           <Link href="/">
             <Title>
+              {/* Use the 128px source at 32px display size so it stays sharp on retina screens. */}
               <Image
                 width={32}
                 height={32}
-                src={config.assets.appIcon32}
+                src={config.assets.appIcon128}
                 alt="Swift Craft Launcher app icon"
                 priority
               />

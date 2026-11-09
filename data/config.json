@@ -4,8 +4,8 @@
   "description": "A lightweight, native Minecraft launcher for macOS, built with Swift and SwiftUI.",
   "repositoryUrl": "https://github.com/suhang12332/Swift-Craft-Launcher",
   "assets": {
-    "appIcon32": "https://raw.githubusercontent.com/suhang12332/Swift-Craft-Launcher/refs/heads/main/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac32pt1x.png",
-    "appIcon128": "https://raw.githubusercontent.com/suhang12332/Swift-Craft-Launcher/refs/heads/main/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac128pt1x.png"
+    "appIcon32": "https://swift-craft-launcher-api.pages.dev/api/assets/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac32pt1x.png",
+    "appIcon128": "https://swift-craft-launcher-api.pages.dev/api/assets/SwiftCraftLauncher/Assets.xcassets/AppIcon.appiconset/mac128pt1x.png"
   },
   "pages": {
     "/": {

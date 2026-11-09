@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'github.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'swift-craft-launcher-api.pages.dev',
+        pathname: '/**',
+      },
     ],
   },
   webpack: (config) => {
