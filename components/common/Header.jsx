@@ -53,7 +53,7 @@ const HeaderContainer = styled(Container)`
 `;
 
 const Title = styled.h2`
-  font-size: 22px;
+  font-size: 21px;
   line-height: 1.14286;
   font-weight: 600;
   letter-spacing: -0.033em;
