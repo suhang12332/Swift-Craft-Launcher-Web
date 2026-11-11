@@ -322,7 +322,7 @@ function Header() {
                 alt="Swift Craft Launcher app icon"
                 priority
               />
-              <span>SCL</span>
+              <span>Swift Craft Launcher</span>
             </Title>
           </Link>
           <Menu>
