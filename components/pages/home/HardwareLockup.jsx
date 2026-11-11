@@ -66,7 +66,7 @@ const HardwareLockup = (props) => {
       </HardwareImage>
       <HardwareLockupMedia>
         <Image
-          src={`/macbook-screen-${colorScheme}.jpg`}
+          src={`/macbook-screen-${colorScheme}.png`}
           alt="macOS desktop"
           width={984}
           height={636}
