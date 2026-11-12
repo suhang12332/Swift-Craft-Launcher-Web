@@ -7,6 +7,7 @@ import Button from '@/components/common/Button';
 import useDownload from '@/hooks/useDownload';
 import { useI18n } from '@/i18n';
 import HeroImage from '../HeroImage';
+import HomebrewInstall from '../HomebrewInstall';
 import config from '@/data/config.json';
 
 const HeroHeadline = styled(Typography)`
@@ -36,18 +37,25 @@ const ProductIconWrap = styled.div`
   }
 `;
 
-const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
+const HeroSection = ({ versionNumber }) => {
   const { t } = useI18n();
   const {
     downloadUrl,
     version: latestVersion,
-    minimumSystemVersion: latestMinimumSystemVersion,
+    minimumSystemVersion,
     loading: downloadLoading,
+    systemSupported,
   } = useDownload();
 
   const displayVersion = latestVersion || versionNumber;
-  const displayMinimumSystemVersion =
-    latestMinimumSystemVersion || minimumSystemVersion;
+  const downloadDisabled = downloadLoading || !systemSupported;
+  const downloadTitle =
+    !downloadLoading && !systemSupported
+      ? t.common.requiresMacOS.replace(
+          '{version}',
+          minimumSystemVersion.split('.')[0]
+        )
+      : undefined;
 
   return (
     <Parallax
@@ -79,22 +87,20 @@ const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
                   </HeroDescription>
                   <Button
                     size="lg"
-                    href={downloadLoading ? undefined : downloadUrl}
-                    aria-disabled={downloadLoading}
+                    href={downloadDisabled ? undefined : downloadUrl}
+                    $disabled={downloadDisabled}
+                    aria-disabled={downloadDisabled}
+                    title={downloadTitle}
                     onClick={
-                      downloadLoading
+                      downloadDisabled
                         ? (event) => event.preventDefault()
                         : undefined
                     }
                   >
                     {t.common.download}
+                    {displayVersion ? ` v${displayVersion}` : ''}
                   </Button>
-                  <Typography variant="body-reduced" color="tertiary">
-                    v{displayVersion} | macOS{' '}
-                    {displayMinimumSystemVersion
-                      ? `${displayMinimumSystemVersion.split('.')[0]}+`
-                      : ``}
-                  </Typography>
+                  <HomebrewInstall />
                 </Stack>
               </Column>
             </Row>

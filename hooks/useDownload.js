@@ -4,6 +4,7 @@ import config from '@/data/config.json';
 const APPCAST_BASE = 'https://swift-craft-launcher-api.pages.dev/api/update';
 const GITHUB_DOWNLOAD = `${config.links.githubRepo}/releases/download`;
 const DOWNLOAD_PROXY = 'https://swift-craft-launcher-api.pages.dev/api/download';
+const MINIMUM_MACOS_VERSION = '14.0';
 
 const toProxyUrl = (url) => url.replace(GITHUB_DOWNLOAD, DOWNLOAD_PROXY);
 
@@ -79,7 +80,88 @@ const detectArch = async () => {
   return 'arm';
 };
 
+const parseVersion = (value) => {
+  const match = String(value || '').match(/\d+(?:\.\d+)*/);
+  return match ? match[0].split('.').map(Number) : null;
+};
+
+const compareVersions = (a, b) => {
+  const length = Math.max(a.length, b.length);
+
+  for (let index = 0; index < length; index += 1) {
+    const difference = (a[index] || 0) - (b[index] || 0);
+
+    if (difference !== 0) return difference;
+  }
+
+  return 0;
+};
+
+const detectPlatform = () => {
+  if (typeof navigator === 'undefined') return 'unknown';
+
+  if (navigator.userAgentData?.platform) {
+    return navigator.userAgentData.platform;
+  }
+
+  const userAgent = navigator.userAgent || '';
+
+  if (/iPhone|iPad|iPod|Android/i.test(userAgent)) return 'iOS';
+  if (/Windows/i.test(userAgent)) return 'Windows';
+  if (/Macintosh|Mac OS X/i.test(userAgent)) {
+    // iPadOS reports itself as Macintosh, so exclude touch devices.
+    return navigator.maxTouchPoints > 1 ? 'iOS' : 'macOS';
+  }
+  if (/Linux/i.test(userAgent)) return 'Linux';
+
+  return 'unknown';
+};
+
+// Safari and Firefox freeze the macOS version in the user agent, so only trust
+// the high-entropy platform version exposed by Chromium browsers.
+const fetchPlatformVersion = async () => {
+  if (typeof navigator === 'undefined') return '';
+  if (!navigator.userAgentData?.getHighEntropyValues) return '';
+
+  try {
+    const { platformVersion } =
+      await navigator.userAgentData.getHighEntropyValues(['platformVersion']);
+
+    return platformVersion || '';
+  } catch {
+    return '';
+  }
+};
+
+const isSupportedSystem = (platform, platformVersion, minimumSystemVersion) => {
+  if (platform !== 'unknown' && platform !== 'macOS') return false;
+
+  const current = parseVersion(platformVersion);
+  const minimum = parseVersion(minimumSystemVersion);
+
+  // The exact macOS version is not exposed by every browser. Keep downloads
+  // available when it cannot be determined instead of blocking valid systems.
+  if (!current || !minimum) return true;
+
+  return compareVersions(current, minimum) >= 0;
+};
+
 let downloadPromise = null;
+let systemPromise = null;
+
+const loadSystem = () => {
+  if (!systemPromise) {
+    systemPromise = (async () => ({
+      platform: detectPlatform(),
+      platformVersion: await fetchPlatformVersion(),
+    }))().catch(() => ({
+      platform: 'unknown',
+      platformVersion: '',
+    }));
+  }
+
+  return systemPromise;
+};
 
 const loadDownload = () => {
   if (!downloadPromise) {
@@ -100,6 +182,11 @@ const loadDownload = () => {
 };
 
 const useDownload = () => {
+  const [system, setSystem] = useState({
+    platform: 'unknown',
+    platformVersion: '',
+    loading: true,
+  });
   const [download, setDownload] = useState({
     arch: 'arm',
     downloadUrl: config.links.latestRelease,
@@ -108,6 +195,20 @@ const useDownload = () => {
     loading: true,
     error: false,
   });
+
+  useEffect(() => {
+    let cancelled = false;
+
+    loadSystem().then((result) => {
+      if (!cancelled) {
+        setSystem({ ...result, loading: false });
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -140,7 +241,19 @@ const useDownload = () => {
     };
   }, []);
 
-  return download;
+  const minimumSystemVersion =
+    download.minimumSystemVersion || MINIMUM_MACOS_VERSION;
+
+  return {
+    ...download,
+    minimumSystemVersion,
+    loading: download.loading || system.loading,
+    systemSupported: isSupportedSystem(
+      system.platform,
+      system.platformVersion,
+      minimumSystemVersion
+    ),
+  };
 };
 
 export default useDownload;

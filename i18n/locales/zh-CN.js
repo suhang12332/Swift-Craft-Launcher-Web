@@ -8,6 +8,7 @@ export default {
     download: '下载',
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
+    requiresMacOS: '仅支持 macOS {version} 或更高版本',
   },
   nav: {
     overview: '概览',

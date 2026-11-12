@@ -8,6 +8,7 @@ export default {
     download: 'Download',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    requiresMacOS: 'Requires macOS {version} or later',
   },
   nav: {
     overview: 'Overview',

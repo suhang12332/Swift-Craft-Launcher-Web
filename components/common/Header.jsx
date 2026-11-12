@@ -280,9 +280,22 @@ const NAV_LABEL_KEYS = {
 };
 
 function Header() {
-  const { downloadUrl, loading: downloadLoading } = useDownload();
+  const {
+    downloadUrl,
+    minimumSystemVersion,
+    loading: downloadLoading,
+    systemSupported,
+  } = useDownload();
   const { t } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
+  const downloadDisabled = downloadLoading || !systemSupported;
+  const downloadTitle =
+    !downloadLoading && !systemSupported
+      ? t.common.requiresMacOS.replace(
+          '{version}',
+          minimumSystemVersion.split('.')[0]
+        )
+      : undefined;
 
   // Close the mobile menu when the viewport grows back to desktop size.
   useEffect(() => {
@@ -364,10 +377,12 @@ function Header() {
               </MenuToggle>
               <Button
                 size="sm"
-                href={downloadLoading ? undefined : downloadUrl}
-                aria-disabled={downloadLoading}
+                href={downloadDisabled ? undefined : downloadUrl}
+                $disabled={downloadDisabled}
+                aria-disabled={downloadDisabled}
+                title={downloadTitle}
                 onClick={
-                  downloadLoading
+                  downloadDisabled
                     ? (event) => event.preventDefault()
                     : undefined
                 }

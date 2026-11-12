@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.a`
-  cursor: ${({ disabled }) => disabled ? `default` : `pointer`};
+  cursor: ${({ disabled, $disabled }) => disabled || $disabled ? `default` : `pointer`};
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
@@ -18,7 +18,7 @@ const Button = styled.a`
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 18px;
-  background: var(${({ disabled }) => disabled ? `--glyph-gray-tertiary` : `--color-fill-blue`});
+  background: var(${({ disabled, $disabled }) => disabled || $disabled ? `--glyph-gray-tertiary` : `--color-fill-blue`});
   color: #fff;
   border: 0;
   outline: 0;

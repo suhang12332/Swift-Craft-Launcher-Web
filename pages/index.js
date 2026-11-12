@@ -5,7 +5,6 @@ export function getStaticProps() {
   return {
     props: {
       versionNumber: '1.3.8',
-      minimumSystemVersion: '14.0',
     },
   };
 }

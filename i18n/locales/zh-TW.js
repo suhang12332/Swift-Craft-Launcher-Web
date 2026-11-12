@@ -8,6 +8,7 @@ export default {
     download: '下載',
     openMenu: '開啟選單',
     closeMenu: '關閉選單',
+    requiresMacOS: '僅支援 macOS {version} 或更高版本',
   },
   nav: {
     overview: '概覽',
