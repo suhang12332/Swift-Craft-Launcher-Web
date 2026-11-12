@@ -100,7 +100,7 @@ const HeroSection = ({ versionNumber }) => {
                     {t.common.download}
                     {displayVersion ? ` v${displayVersion}` : ''}
                   </Button>
-                  <HomebrewInstall />
+                  {!downloadDisabled && <HomebrewInstall />}
                 </Stack>
               </Column>
             </Row>
